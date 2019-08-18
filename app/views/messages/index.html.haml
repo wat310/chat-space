@@ -1,0 +1,36 @@
+.header
+  グループを作成しました
+
+=render 'side-bar', group: @group
+
+.main-view
+  .main-header
+    .main-header__group-box
+      .main-header__group-box__group-name
+        test1
+      .main-header__group-box__member-rist
+        Member : user
+    .main-header__edit-btn
+      Edit
+
+  .main-chat
+    .main-chat__chat-box
+      .main-chat__chat-box__info-box
+        .main-chat__chat-box__info-box__name
+          test-user
+        .main-chat__chat-box__info-box__date
+          2019/8/18(Sun) 15:00:00
+      .main-chat__chat-box__text
+        こんにちは!
+
+  .form
+    .form__inside
+      .form__inside__input
+        .form__inside__input__message
+          type a message
+        .form__inside__input__icon
+          %label
+            = fa_icon 'image'
+            %input(type="file" class="form__inside__input__icon__send-image")
+      .form__inside__send-btn
+        Send
