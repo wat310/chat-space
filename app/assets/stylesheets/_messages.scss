@@ -1,0 +1,121 @@
+* {
+  box-sizing: border-box;
+}
+
+.header {
+  background-color: $LightBlueColor;
+  text-align: center;
+  color: white;
+}
+
+@include side-bar;
+
+.main-view {
+  float: left;
+  width: calc(100vw - 300px);
+
+  .main-header {
+    height: 100px;
+    padding: 0 40px;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: solid 1px #eeeeee;
+
+    &__group-box {
+      margin-top: 35px;
+
+      &__group-name {
+        color: #333333;
+        font-size: 20px;
+        margin-bottom: 15px;
+      }
+
+      &__member-rist {
+        @include smalltext;
+      }
+    }
+
+    &__edit-btn {
+      border: solid 1px $LightBlueColor;
+      color: $LightBlueColor;
+      height: 40px;
+      line-height: 40px;
+      padding: 0 20px;
+      margin-top:28px;
+    }
+  }
+
+  .main-chat {
+    background-color: #fafafa;
+    height: calc(100vh - 190px);
+    padding: 46px 40px;
+    overflow: scroll;
+
+    &__chat-box {
+      padding-bottom: 40px;
+
+      &__info-box {
+        display: flex;
+        align-items: center;
+        margin-bottom: 10px;
+
+        &__name {
+          color: $BlackTextColor;
+          font-weight: bold;
+        }
+
+        &__date {
+          margin-left: 10px;
+          @include smalltext;
+        }
+      }
+
+      &__text {
+        font-size: 14px;
+        color: $BlackTextColor;
+      }
+    }
+  }
+
+  .form {
+    background-color:#ddd;
+    height: 90px;
+    padding: 20px 40px;
+
+    &__inside {
+      display: flex;
+
+      &__input {
+        height: 50px;
+        width: 100%;
+        background-color: white;
+        line-height: 50px;
+        display: flex;
+        justify-content: space-between;
+        padding: 0 10px;
+
+        &__message {
+          color: $BlackTextColor;
+        }
+
+        &__icon {
+          font-size: 20px;
+
+          &__send-image {
+            display:none;
+          }
+        }
+      }
+
+      &__send-btn {
+        background-color: $LightBlueColor;
+        color: white;
+        margin-left: 15px;
+        padding: 0 30px;
+        width: 100px;
+        height: 50px;
+        line-height: 50px;
+      }
+    }
+  }
+}
