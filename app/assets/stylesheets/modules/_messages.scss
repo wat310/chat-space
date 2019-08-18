@@ -2,13 +2,7 @@
   box-sizing: border-box;
 }
 
-.header {
-  background-color: $LightBlueColor;
-  text-align: center;
-  color: white;
-}
-
-@include side-bar;
+@include side_bar;
 
 .main-view {
   float: left;

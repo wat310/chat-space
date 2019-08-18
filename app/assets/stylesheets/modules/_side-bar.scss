@@ -1,0 +1,41 @@
+@mixin side_bar() {
+  .side-bar {
+    float: left;
+    width: 300px;
+    overflow: scroll;
+  
+    .side-top {
+      @include side_status;
+      background-color: #253141;
+      height: 100px;
+      font-size: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      .icon {
+        color: white;
+      }
+      }
+  
+    .groups {
+      @include side_status;
+      background-color: #2f3e51;
+      height: calc(100vh - 100px);
+      padding-top: 20px;
+  
+      .group {
+        margin-bottom: 40px;
+  
+          &__name {
+            font-size: 15px;
+            margin-bottom: 5px;
+          }
+  
+          &__text {
+            font-size: 11px;
+          }
+      }
+    }
+  }
+}
