@@ -1,16 +1,18 @@
 .side-bar
   .side-top
-    .side-top__box
+    %h3.side-top__box
       =current_user.name
-    .side-top__icons
-      =link_to new_group_path do
-        = fa_icon 'edit', class: 'icon'
-      =link_to edit_user_path(current_user) do
-        = fa_icon 'cog', class: 'icon'
+    %ul.side-top__icons
+      %li.list
+        =link_to new_group_path do
+          = fa_icon 'edit', class: 'icon'
+      %li.list
+        =link_to edit_user_path(current_user) do
+          = fa_icon 'cog', class: 'icon', style: 'margin-left: 5px;'
 
   .groups
-    .group
-      - current_user.groups.each do |group|
+    - current_user.groups.each do |group|
+      .group
         = link_to group_messages_path(group) do
           .group__name
             = group.name

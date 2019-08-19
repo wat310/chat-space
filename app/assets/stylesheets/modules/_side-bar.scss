@@ -4,7 +4,7 @@
     float: left;
     width: 300px;
     overflow: scroll;
-    
+
     .side-top {
       @include side_text;
       padding: 0 20px;
@@ -15,8 +15,15 @@
       align-items: center;
       justify-content: space-between;
 
+      &__icons {
+        display: flex;
+       
+      }
+
       .icon {
         color: white;
+        font-size: 16px;
+        display: inline-block;
       }
       }
   
