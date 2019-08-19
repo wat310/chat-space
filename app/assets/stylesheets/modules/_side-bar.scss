@@ -1,11 +1,13 @@
 @mixin side_bar() {
   .side-bar {
+    box-sizing: border-box;
     float: left;
     width: 300px;
     overflow: scroll;
-  
+    
     .side-top {
-      @include side_status;
+      @include side_text;
+      padding: 0 20px;
       background-color: #253141;
       height: 100px;
       font-size: 16px;
@@ -19,7 +21,8 @@
       }
   
     .groups {
-      @include side_status;
+      // @include side_text;
+      padding: 0 20px;
       background-color: #2f3e51;
       height: calc(100vh - 100px);
       padding-top: 20px;
@@ -30,10 +33,12 @@
           &__name {
             font-size: 15px;
             margin-bottom: 5px;
+            @include side_text;
           }
   
           &__text {
             font-size: 11px;
+            @include side_text;
           }
       }
     }

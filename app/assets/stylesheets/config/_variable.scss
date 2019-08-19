@@ -6,9 +6,7 @@ $BlackTextColor: #434A54;
   font-size: 12px;
 }
 
-@mixin side_status() {
+@mixin side_text() {
   color: #FFFFFF;
   font-weight: bold;
-  padding: 0 20px;
 }
-
