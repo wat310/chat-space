@@ -10,7 +10,9 @@
 
   .groups
     .group
-      .group__name
-        test-group
-      .group__text
-        さようなら
+      - current_user.groups.each do |group|
+        = link_to group_messages_path(group) do
+          .group__name
+            = group.name
+          .group__text
+            メッセージはまだありません
