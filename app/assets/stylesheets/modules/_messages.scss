@@ -46,10 +46,10 @@
     padding: 46px 40px;
     overflow: scroll;
 
-    &__chat-box {
+    .chat-box {
       padding-bottom: 40px;
 
-      &__info-box {
+      .info-box {
         display: flex;
         align-items: center;
         margin-bottom: 10px;
@@ -65,7 +65,7 @@
         }
       }
 
-      &__text {
+      .text-box {
         font-size: 14px;
         color: $BlackTextColor;
       }
@@ -77,40 +77,48 @@
     height: 90px;
     padding: 20px 40px;
 
-    &__inside {
-      display: flex;
+    &__input {
+      width: 100%;
+      position: relative;
 
-      &__input {
+      &__message {
+        color: $BlackTextColor;
+        border: none;
         height: 50px;
-        width: 100%;
-        background-color: white;
+        width: calc(100% - 115px);
         line-height: 50px;
-        display: flex;
-        justify-content: space-between;
-        padding: 0 10px;
+        padding: 0 40px 0 10px;
+        float: left;
+      }
+  
+      &__icon-box {
+        position: absolute;
+        right: calc(100px + 15px);
+        margin-right: 10px;
 
-        &__message {
-          color: $BlackTextColor;
+        &__image {
+          line-height: 50px;
         }
-
-        &__icon {
+  
+        .icon {
           font-size: 20px;
-
-          &__send-image {
-            display:none;
-          }
+        }
+  
+        .original {
+          display:none;
         }
       }
+    }
 
-      &__send-btn {
-        background-color: $LightBlueColor;
-        color: white;
-        margin-left: 15px;
-        padding: 0 30px;
-        width: 100px;
-        height: 50px;
-        line-height: 50px;
-      }
+    &__send-btn {
+      background-color: $LightBlueColor;
+      color: white;
+      margin-left: 15px;
+      padding: 0 30px;
+      width: 100px;
+      height: 50px;
+      line-height: 50px;
+      float: right;
     }
   }
 }

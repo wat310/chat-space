@@ -11,23 +11,14 @@
       Edit
 
   .main-chat
-    .main-chat__chat-box
-      .main-chat__chat-box__info-box
-        .main-chat__chat-box__info-box__name
-          test-user
-        .main-chat__chat-box__info-box__date
-          2019/8/18(Sun) 15:00:00
-      .main-chat__chat-box__text
-        こんにちは!
+    = render @messages
 
   .form
-    .form__inside
-      .form__inside__input
-        .form__inside__input__message
-          type a message
-        .form__inside__input__icon
-          %label
-            = fa_icon 'image'
-            %input(type="file" class="form__inside__input__icon__send-image")
-      .form__inside__send-btn
-        Send
+    = form_for [@group, @message] do |f|
+      .form__input
+        = f.text_field :content, class: 'form__input__message', placeholder: 'type a message'
+        .form__input__icon-box
+          =f.label :image, class: 'form__input__icon-box__image' do
+            = fa_icon 'image', class: 'icon'
+            =f.file_field :image, class: 'original'
+      =f.submit 'Send', class: 'form__send-btn'
