@@ -32,11 +32,14 @@
 
     &__edit-btn {
       border: solid 1px $LightBlueColor;
-      color: $LightBlueColor;
       height: 40px;
       line-height: 40px;
       padding: 0 20px;
       margin-top:28px;
+
+      &__text {
+        color: $LightBlueColor;
+      }
     }
   }
 

@@ -4,11 +4,15 @@
   .main-header
     .main-header__group-box
       .main-header__group-box__group-name
-        test1
+        =@group.name
       .main-header__group-box__member-rist
         Member : user
+        -# ='Member : '
+        -# =@group.name
     .main-header__edit-btn
-      Edit
+      =link_to edit_group_path(@group) do
+        .main-header__edit-btn__text
+          Edit
 
   .main-chat
     = render @messages
