@@ -6,9 +6,9 @@
       .main-header__group-box__group-name
         =@group.name
       .main-header__group-box__member-rist
-        Member : user
-        -# ='Member : '
-        -# =@group.name
+        Member :
+        - @group.users.each do |user|
+          =user.name
     .main-header__edit-btn
       =link_to edit_group_path(@group) do
         .main-header__edit-btn__text
