@@ -29,7 +29,7 @@ $(document).on('turbolinks:load', function() { /*turbolinksの影響で、グル
     $('#new_message').on('submit', function(e){
       e.preventDefault();
       var formData = new FormData(this);
-      url = $(this).attr('action') /*action属性にurlの情報が入っている*/
+      var url = $(this).attr('action') /*action属性にurlの情報が入っている*/
 
       $.ajax({ /*ajaxでリクエストを送る*/
         url: url,

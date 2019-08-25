@@ -2,14 +2,23 @@ $(document).on('turbolinks:load', function() {
 
   $(function() {
     var search_user = $("#user-search-result");
+    var member_result = $("#member-result");
   
-    function appendUser(user){
-  
+    function appendUser(user){ /*メンバーの検索*/
       var html = `<div class="chat-group-user clearfix">
                     <p class="chat-group-user__name">${user.name}</p>
                     <div class="user-search-add chat-group-user__btn chat-group-user__btn--add" data-user-id="${user.user_id}" data-user-name="${user.name}">追加</div>
                   </div>`
       search_user.append(html);
+    }
+
+    function appendMember(name, user_id){ /*メンバーの追加*/
+      var html = `<div class='chat-group-user'>
+                    <input name='group[user_ids][]' type='hidden' value='${user_id}'>
+                    <p class='chat-group-user__name'>${name}</p>
+                    <div class='user-search-remove chat-group-user__btn chat-group-user__btn--remove js-remove-btn'>削除</div>
+                  </div>`
+      member_result.append(html);
     }
   
     $("#user-search-field").on("keyup", function() { /*キーが入力されるごとのインクリメンタルサーチ*/
@@ -29,7 +38,6 @@ $(document).on('turbolinks:load', function() {
             appendUser(user);
           });
         }
-        
       })
 
       .fail(function(){
@@ -38,7 +46,10 @@ $(document).on('turbolinks:load', function() {
     });
 
     $(document).on("click", ".user-search-add.chat-group-user__btn.chat-group-user__btn--add", function () { /*後から追加した要素に対してのクリックイベント発火*/
-      
+      var name = $(this).attr('data-user-name');
+      var user_id = $(this).attr('data-user-id');
+      appendMember(name, user_id);
+      $(this).parent().remove(); /*追加後に一覧から削除(parentがないと、「追加」ボタンのみが消えてしまうので親要素ごと消す)*/
     });
 
   });
