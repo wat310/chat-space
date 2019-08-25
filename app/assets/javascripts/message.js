@@ -36,12 +36,11 @@ $(document).on('turbolinks:load', function() { /*turbolinksの影響で、グル
         type: "POST",
         data: formData,
         dataType: 'json',
-        processData: false,
-        contentType: false
+        processData: false, /*type: POSTとセット*/
+        contentType: false /*type: POSTとセット*/
       })
   
       .done(function(message){ /*成功したら*/
-        
         var html = buildHTML(message);
         $('.main-chat').append(html);
         $('.new_message')[0].reset(); /*フォームの情報をリセット(フォームが画像を保持しないように)*/
