@@ -2,7 +2,7 @@ $(document).on('turbolinks:load', function() { /*turbolinksの影響で、グル
   $(function(){
     function buildHTML(message){
       var image = (message.image) ? `<img src="${message.image}">` : ""; /*画像の有無の条件分岐*/
-  
+
       var html = `<div class="chat-box">
                     <div class="info-box">
                       <div class="info-box__name">
@@ -21,34 +21,33 @@ $(document).on('turbolinks:load', function() { /*turbolinksの影響で、グル
                   </div>`
       return html;
     }
-  
+
     function scroll() { /*最下部までスクロールするメソッド*/
       $('.main-chat').animate({scrollTop: $('.main-chat')[0].scrollHeight}, 'fast');
   }
-  
+
     $('#new_message').on('submit', function(e){
       e.preventDefault();
       var formData = new FormData(this);
-      url = $(this).attr('action') /*action属性にurlの情報が入っている*/
-  
+      var url = $(this).attr('action') /*action属性にurlの情報が入っている*/
+
       $.ajax({ /*ajaxでリクエストを送る*/
         url: url,
         type: "POST",
         data: formData,
         dataType: 'json',
-        processData: false,
-        contentType: false
+        processData: false, /*type: POSTとセット*/
+        contentType: false /*type: POSTとセット*/
       })
-  
+
       .done(function(message){ /*成功したら*/
-        
         var html = buildHTML(message);
         $('.main-chat').append(html);
         $('.new_message')[0].reset(); /*フォームの情報をリセット(フォームが画像を保持しないように)*/
         scroll() /*scrollメソッドの呼び出し*/
         $("input[ type='submit' ]").removeAttr('disabled'); /*連続でボタンを押せるように*/
       })
-  
+
       .fail(function(){ /*失敗したら*/
         alert('エラーです');
         $("input[ type='submit' ]").removeAttr('disabled'); /*連続でボタンを押せるように*/
