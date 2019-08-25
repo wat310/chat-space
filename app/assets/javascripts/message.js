@@ -2,7 +2,7 @@ $(document).on('turbolinks:load', function() { /*turbolinksの影響で、グル
   $(function(){
     function buildHTML(message){
       var image = (message.image) ? `<img src="${message.image}">` : ""; /*画像の有無の条件分岐*/
-  
+
       var html = `<div class="chat-box">
                     <div class="info-box">
                       <div class="info-box__name">

@@ -55,7 +55,6 @@ $(document).on('turbolinks:load', function() {
     $(document).on("click", ".user-search-remove.chat-group-user__btn.chat-group-user__btn--remove.js-remove-btn", function () { /*所属ユーザー削除*/
       $(this).parent().remove(); /*所属ユーザーの一覧から削除(parentがないと、「削除」ボタンのみが消えてしまうので親要素ごと消す)*/
     });
-
   });
 });
 
