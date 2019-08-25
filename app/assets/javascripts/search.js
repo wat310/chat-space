@@ -49,7 +49,11 @@ $(document).on('turbolinks:load', function() {
       var name = $(this).attr('data-user-name');
       var user_id = $(this).attr('data-user-id');
       appendMember(name, user_id);
-      $(this).parent().remove(); /*追加後に一覧から削除(parentがないと、「追加」ボタンのみが消えてしまうので親要素ごと消す)*/
+      $(this).parent().remove(); /*追加後に検索ユーザーの一覧から削除(parentがないと、「追加」ボタンのみが消えてしまうので親要素ごと消す)*/
+    });
+
+    $(document).on("click", ".user-search-remove.chat-group-user__btn.chat-group-user__btn--remove.js-remove-btn", function () { /*所属ユーザー削除*/
+      $(this).parent().remove(); /*所属ユーザーの一覧から削除(parentがないと、「削除」ボタンのみが消えてしまうので親要素ごと消す)*/
     });
 
   });
