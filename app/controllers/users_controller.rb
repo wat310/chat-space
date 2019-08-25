@@ -1,12 +1,7 @@
 class UsersController < ApplicationController
   def index
-    users_include_current_user = User.where('name LIKE(?)', "%#{params[:keyword]}%") #current_userも含んだ配列
-    @users = []
-    users_include_current_user.each do |user|
-      if user.id != current_user.id
-        @users << user #current_userを除いた配列の中で検索が行われるように
-      end
-    end
+    @users = User.where.not(id: current_user.id).where('name LIKE(?)', "%#{params[:keyword]}%") #current_userを除いた配列(current_userが検索されないため)
+    # end
     respond_to do |format|
       format.html
       format.json
