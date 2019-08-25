@@ -21,16 +21,16 @@ $(document).on('turbolinks:load', function() { /*turbolinksの影響で、グル
                   </div>`
       return html;
     }
-  
+
     function scroll() { /*最下部までスクロールするメソッド*/
       $('.main-chat').animate({scrollTop: $('.main-chat')[0].scrollHeight}, 'fast');
   }
-  
+
     $('#new_message').on('submit', function(e){
       e.preventDefault();
       var formData = new FormData(this);
       url = $(this).attr('action') /*action属性にurlの情報が入っている*/
-  
+
       $.ajax({ /*ajaxでリクエストを送る*/
         url: url,
         type: "POST",
@@ -39,7 +39,7 @@ $(document).on('turbolinks:load', function() { /*turbolinksの影響で、グル
         processData: false, /*type: POSTとセット*/
         contentType: false /*type: POSTとセット*/
       })
-  
+
       .done(function(message){ /*成功したら*/
         var html = buildHTML(message);
         $('.main-chat').append(html);
@@ -47,7 +47,7 @@ $(document).on('turbolinks:load', function() { /*turbolinksの影響で、グル
         scroll() /*scrollメソッドの呼び出し*/
         $("input[ type='submit' ]").removeAttr('disabled'); /*連続でボタンを押せるように*/
       })
-  
+
       .fail(function(){ /*失敗したら*/
         alert('エラーです');
         $("input[ type='submit' ]").removeAttr('disabled'); /*連続でボタンを押せるように*/

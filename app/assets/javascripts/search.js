@@ -12,7 +12,7 @@ $(document).on('turbolinks:load', function() {
       search_user.append(html);
     }
   
-    $("#user-search-field").on("keyup", function() {
+    $("#user-search-field").on("keyup", function() { /*キーが入力されるごとのインクリメンタルサーチ*/
       var input = $("#user-search-field").val();
   
       $.ajax({
@@ -36,6 +36,11 @@ $(document).on('turbolinks:load', function() {
         alert('ユーザーの検索に失敗しました');
       })
     });
+
+    $(document).on("click", ".user-search-add.chat-group-user__btn.chat-group-user__btn--add", function () { /*後から追加した要素に対してのクリックイベント発火*/
+      
+    });
+
   });
 });
 
