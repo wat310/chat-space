@@ -11,7 +11,6 @@
       %label.chat-group-form__label{for: "chat_group_グループ名"} グループ名
     .chat-group-form__field--right
       = f.text_field :name, class: 'chat_group_name chat-group-form__input', placeholder: "グループ名を入力してください"
-  / これの上の.chat-group-form__fieldはグループ名用に追加(本人)
 
   .chat-group-form__field.clearfix
     .chat-group-form__field--left
@@ -32,7 +31,7 @@
           %p.chat-group-user__name
             = current_user.name
         /current_user以外を表示
-        - @users.each do |user|
+        - group.users.each do |user|
           - if user.id != current_user.id
             .chat-group-user
               %input{ name: 'group[user_ids][]', type: 'hidden', value: user.id }
