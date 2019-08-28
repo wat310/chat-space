@@ -7,7 +7,6 @@ class GroupsController < ApplicationController
   def new
     @group = Group.new
     @group.users << current_user
-    @users = @group.users
   end
 
   def create
@@ -20,7 +19,6 @@ class GroupsController < ApplicationController
   end
 
   def edit
-    @users = @group.users
   end
 
   def update
