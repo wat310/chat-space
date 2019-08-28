@@ -65,7 +65,6 @@ $(document).on('turbolinks:load', function() { /*turbolinksの影響で、グル
           data: {id: last_message_id} /*リクエストで一緒に送るデータ*/
         })
         .done(function(messages) {
-          console.log("OK"); /*あとで消す！！*/
           var insertHTML = '';
           messages.forEach(function(message){
             if (message.id > last_message_id) { /*前回から投稿が増えれば自動更新する*/
