@@ -4,7 +4,7 @@
     .info-box__name
       = message.user.name
     .info-box__date
-      = message.created_at.strftime("%Y/%m/%d %H:%M")
+      = message.created_at.in_time_zone('Tokyo').strftime("%Y/%m/%d %H:%M")
   .text-box
     - if message.content.present?
       %p.text-box__content
